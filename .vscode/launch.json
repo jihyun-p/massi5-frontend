@@ -7,8 +7,8 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open Community.html",
-            "file": "/Users/heoyoonji/Desktop/Project/massi5-frontend/Community/Community.html"
+
+
         }
     ]
 }
