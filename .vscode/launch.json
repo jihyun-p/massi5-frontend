@@ -7,8 +7,8 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open record.html",
-            "file": "c:\\Users\\khsu0\\Lecture\\massi5\\massi5-frontend\\Record\\record.html"
+
+
         }
     ]
 }
