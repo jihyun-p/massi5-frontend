@@ -13,7 +13,7 @@
                     theme: {
                         extend: {
                             colors: {
-                                "primary": "#ee8c2b", // 메인컬러 
+                                "primary": "#F35C1B", // 메인컬러 
                                 "background-light": "#f8f7f6", // 밝은 테마 배경색
                                 "background-dark": "#221910",  // 다크 테마 배경색
                             },
@@ -56,9 +56,9 @@
         <main class="flex-1 overflow-y-auto no-scrollbar pb-24">
             <section class="px-6 pt-6 pb-8 flex flex-col items-center">
                 <div class="w-24 h-24 rounded-full bg-gray-200 overflow-hidden mb-4 border-4 border-white shadow-sm">
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" class="w-full h-full object-cover">
+                    <img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-21CxFM8gkFfLlwzhXIVzM324aA5ju6ukiFrDYJRpeRYJ7YOKDjMvW7A1ZFqR1VlL8LsudGL_2llGR71foJcEr0kUoknmT2kcF7Z18SjzsG2NVfcluNDSCFMfn92SRFzx3x5s1mz863adGgKqw0F04A4ttaCR0IM2Xx_owK8UTyeTNQz-tjT1DTqI_vYXHy8fRuHilMWbclQb9_aR5LCnOzKR8B8U6DPm6nmIYriBd3XX7_QO2cL23YS_0fa0_178eDiylFi2bXQ"/>
                 </div>
-                <h2 class="text-xl font-bold mb-2 text-[#181411]">익명_273</h2>
+                <h2 id="nickname" class="text-xl font-bold mb-2 text-[#181411]">닉네임</h2>
                 <div class="flex flex-row items-center gap-2">
                     <span class="inline-flex items-center px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full whitespace-nowrap">Lv. 3 미식가</span>
                     <span class="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-500 text-xs font-medium rounded-full whitespace-nowrap">30일 연속 🔥</span>
@@ -66,13 +66,22 @@
             </section>
 
             <section class="px-6 mb-8">
-                <div onclick="openPopup()" class="bg-white p-5 rounded-2xl shadow-sm border border-[#F4F2F0] cursor-pointer hover:border-primary/30 transition-all">
-                    <div class="flex justify-between items-center mb-6"><span class="font-bold text-lg">2023년 10월</span></div>
-                    <div class="grid grid-cols-7 gap-y-4 text-center text-sm">
-                        <div class="text-gray-400 text-xs font-bold">일</div><div class="text-gray-400 text-xs font-bold">월</div><div class="text-gray-400 text-xs font-bold">화</div><div class="text-gray-400 text-xs font-bold">수</div><div class="text-gray-400 text-xs font-bold">목</div><div class="text-gray-400 text-xs font-bold">금</div><div class="text-gray-400 text-xs font-bold">토</div>
-                        <div class="col-start-1 py-2 text-gray-300">24</div><div class="py-2 text-gray-300">25</div><div class="py-2 text-gray-300">26</div>
-                        <div class="py-2 bg-primary text-white rounded-full font-bold shadow-md">1</div><div class="py-2">2</div><div class="py-2">3</div><div class="py-2">4</div>
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-[#181411] dark:text-white">캘린더</h3>
+                    <button class="text-sm text-gray-500 hover:text-[#181411] transition-colors">전체보기</button>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-[#F4F2F0] hover:border-primary/30 transition-all">
+                    <div class="mb-6">
+                        <span id="calendar-month-title" class="font-bold text-lg dark:text-white"></span>
                     </div>
+
+                    <div class="grid grid-cols-7 gap-x-1 mb-4 text-center text-xs font-bold text-gray-400">
+                        <div>일</div><div>월</div><div>화</div><div>수</div><div>목</div><div>금</div><div>토</div>
+                    </div>
+
+                    <div id="calendar-days" class="grid grid-cols-7 gap-y-3 gap-x-1 text-center text-sm">
+                        </div>
                 </div>
             </section>
 
@@ -142,6 +151,78 @@
         function closePopup() {
             document.getElementById('overlay').classList.remove('opacity-100', 'pointer-events-auto');
             document.getElementById('popup').classList.add('translate-y-full');
+        }
+
+        // 여기에 로그인한 사람의 닉네임이 들어온다고 가정
+        // 나중에는 서버나 로그인 데이터에서 이 값을 자동으로 가져옴
+        const userNickname = "Momogosso"; 
+
+        // 화면이 다 그려지면 실행
+        document.addEventListener("DOMContentLoaded", function() {
+            // [기존 코드] 닉네임 설정
+            const nicknameElement = document.getElementById("nickname");
+            const savedNickname = localStorage.getItem('userNickname') || "Momogosso"; 
+            if (nicknameElement) {
+                nicknameElement.innerText = savedNickname;
+            }
+
+            // [신규 코드] 달력 생성 함수 호출
+            renderCalendar();
+        });
+
+        function renderCalendar() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = now.getMonth();
+
+            document.getElementById('calendar-month-title').innerText = `${year}년 ${month + 1}월`;
+
+            const calendarDays = document.getElementById('calendar-days');
+            calendarDays.innerHTML = '';
+
+            const firstDay = new Date(year, month, 1).getDay();
+            const lastDate = new Date(year, month + 1, 0).getDate();
+
+            // 빈 칸 생성
+            for (let i = 0; i < firstDay; i++) {
+                calendarDays.appendChild(document.createElement('div'));
+            }
+
+            // 날짜 생성
+            for (let date = 1; date <= lastDate; date++) {
+                const dateDiv = document.createElement('div');
+                dateDiv.className = "py-2 font-medium cursor-pointer hover:bg-gray-50 rounded-lg transition-colors relative flex items-center justify-center";
+                dateDiv.innerText = date;
+
+                // [중요] 날짜를 클릭하면 팝업을 띄우는 함수 연결
+                dateDiv.onclick = function() {
+                    // 여기에 날짜별 데이터를 다르게 보여주는 로직을 추가할 수 있습니다.
+                    // 현재는 팝업을 여는 함수만 호출합니다.
+                    openPopup(year, month + 1, date); 
+                };
+
+                // 오늘 날짜 강조 (주황색 점)
+                if (date === now.getDate() && month === new Date().getMonth()) {
+                    dateDiv.classList.add("text-primary", "font-bold");
+                    const dot = document.createElement('div');
+                    dot.className = "w-1 h-1 bg-primary rounded-full absolute bottom-1";
+                    dateDiv.appendChild(dot);
+                }
+
+                calendarDays.appendChild(dateDiv);
+            }
+        }
+
+        // 팝업 열기 함수 수정 (날짜 정보를 인자로 받을 수 있게 준비)
+        function openPopup(year, month, date) {
+            // 팝업 내의 날짜 제목을 클릭한 날짜로 변경 (선택 사항)
+            const popupDateTitle = document.querySelector('#popup h2');
+            if (popupDateTitle) {
+                popupDateTitle.innerText = `${month}월 ${date}일`;
+            }
+            
+            document.getElementById('overlay').classList.add('opacity-100', 'pointer-events-auto');
+            document.getElementById('popup').classList.remove('translate-y-full');
         }
     </script>
 </body>

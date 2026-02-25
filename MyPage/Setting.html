@@ -12,7 +12,7 @@
                     theme: {
                         extend: {
                             colors: {
-                                "primary": "#ee8c2b", // 메인컬러 
+                                "primary": "#F35C1B", // 메인컬러 
                                 "background-light": "#f8f7f6", // 밝은 테마 배경색
                                 "background-dark": "#221910",  // 다크 테마 배경색
                             },
@@ -42,95 +42,100 @@
             }
         </style>
   </head>
+
 <body class="bg-background-light dark:bg-background-dark text-[#181411] dark:text-white overflow-hidden w-full h-screen relative flex justify-center">
-<div class="w-full max-w-[480px] h-full flex flex-col bg-background-light dark:bg-background-dark relative shadow-xl overflow-hidden">
-<header class="flex items-center justify-between px-6 pt-6 pb-2">
-<h1 class="text-xl font-bold text-[#181411] dark:text-white">마이페이지</h1>
-<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
-<span class="material-symbols-outlined text-[#181411] dark:text-white">settings</span>
-</button>
-</header>
-<main class="flex-1 overflow-y-auto no-scrollbar pb-24">
-<section class="px-6 pt-4 pb-6">
-<div class="flex items-center gap-4 mb-6">
-<div class="w-16 h-16 rounded-full bg-gray-200 overflow-hidden ring-2 ring-white dark:ring-[#2A2018]">
-<img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-21CxFM8gkFfLlwzhXIVzM324aA5ju6ukiFrDYJRpeRYJ7YOKDjMvW7A1ZFqR1VlL8LsudGL_2llGR71foJcEr0kUoknmT2kcF7Z18SjzsG2NVfcluNDSCFMfn92SRFzx3x5s1mz863adGgKqw0F04A4ttaCR0IM2Xx_owK8UTyeTNQz-tjT1DTqI_vYXHy8fRuHilMWbclQb9_aR5LCnOzKR8B8U6DPm6nmIYriBd3XX7_QO2cL23YS_0fa0_178eDiylFi2bXQ"/>
-</div>
-<div>
-<h2 class="text-xl font-bold text-[#181411] dark:text-white mb-0.5">Hi Jihyun!</h2>
-<div class="flex items-center gap-1.5 text-sm text-[#897561] dark:text-gray-400">
-</div>
-</div>
-</div>
-</section>
+    <div class="w-full max-w-[480px] h-full flex flex-col bg-background-light dark:bg-background-dark relative shadow-xl overflow-hidden">
+        <header class="flex items-center justify-between px-6 pt-6 pb-2">
+            <div class="flex items-center gap-2">
+                <button onclick="location.href='Mypage.html'" class="w-8 h-8 flex items-center justify-center hover:bg-black/5 rounded-full transition-colors">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1 class="text-xl font-bold">설정</h1>
+            </div>
+        </header>
+    <main class="flex-1 overflow-y-auto no-scrollbar pb-24">
+        <section class="px-6 pt-4 pb-6">
+        <div class="flex items-center gap-4 mb-6">
+            <div class="w-16 h-16 rounded-full bg-gray-200 overflow-hidden ring-2 ring-white dark:ring-[#2A2018]">
+                <img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-21CxFM8gkFfLlwzhXIVzM324aA5ju6ukiFrDYJRpeRYJ7YOKDjMvW7A1ZFqR1VlL8LsudGL_2llGR71foJcEr0kUoknmT2kcF7Z18SjzsG2NVfcluNDSCFMfn92SRFzx3x5s1mz863adGgKqw0F04A4ttaCR0IM2Xx_owK8UTyeTNQz-tjT1DTqI_vYXHy8fRuHilMWbclQb9_aR5LCnOzKR8B8U6DPm6nmIYriBd3XX7_QO2cL23YS_0fa0_178eDiylFi2bXQ"/>
+            </div>
+            <div>
+                <h2 class="text-xl font-bold text-[#181411] dark:text-white mb-0.5">Hi Jihyun!</h2>
+                <div class="flex items-center gap-1.5 text-sm text-[#897561] dark:text-gray-400">
+                </div>
+            </div>
+        </div>
+        </section>
 
-<section class="px-6 pb-8">
-<h3 class="text-lg font-bold text-[#181411] dark:text-white mb-4">설정</h3>
-<div class="bg-white dark:bg-[#2A2018] rounded-2xl shadow-sm border border-[#f4f2f0] dark:border-[#3a2e24] overflow-hidden">
-<button class="w-full flex items-center justify-between p-4 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors border-b border-[#f4f2f0] dark:border-[#3a2e24] last:border-0">
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-[#F3F4F6] dark:bg-white/10 flex items-center justify-center text-[#4B5563] dark:text-gray-300">
-<span class="material-symbols-outlined text-[20px]">person</span>
-</div>
-<span class="text-sm font-medium text-[#181411] dark:text-white">프로필 수정</span>
-</div>
-<span class="material-symbols-outlined text-gray-400 text-[20px]">chevron_right</span>
-</button>
-<button class="w-full flex items-center justify-between p-4 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors border-b border-[#f4f2f0] dark:border-[#3a2e24] last:border-0">
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-[#F3F4F6] dark:bg-white/10 flex items-center justify-center text-[#4B5563] dark:text-gray-300">
-<span class="material-symbols-outlined text-[20px]">notifications</span>
-</div>
-<span class="text-sm font-medium text-[#181411] dark:text-white">알림 설정</span>
-</div>
-<span class="material-symbols-outlined text-gray-400 text-[20px]">chevron_right</span>
-</button>
-<button class="w-full flex items-center justify-between p-4 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-[#F3F4F6] dark:bg-white/10 flex items-center justify-center text-[#4B5563] dark:text-gray-300">
-<span class="material-symbols-outlined text-[20px]">help</span>
-</div>
-<span class="text-sm font-medium text-[#181411] dark:text-white">도움말 및 지원</span>
-</div>
-<span class="material-symbols-outlined text-gray-400 text-[20px]">chevron_right</span>
-</button>
-</div>
-<div class="mt-8 mb-4 text-center">
-<button class="text-xs text-gray-400 underline">로그아웃</button>
-</div>
-</section>
-</main>
-<nav class="absolute bottom-0 left-0 right-0 bg-white dark:bg-[#1E160F] border-t border-[#f4f2f0] dark:border-[#3a2e24] px-6 pb-6 pt-3 flex justify-between items-end z-50">
-                <!-- Home (Active) -->
-                <a class="flex flex-col items-center justify-center gap-1 min-w-[64px] group" href="../Home/home.html">
-                    <div class="text-[#9CA3AF] dark:text-gray-500 group-hover:text-[#897561] dark:group-hover:text-gray-400 flex items-center justify-center transition-transform group-active:scale-95">
-                        <span class="material-symbols-outlined">home</span>
+        <section class="px-6 pb-8">
+        <div class="bg-white dark:bg-[#2A2018] rounded-2xl shadow-sm border border-[#f4f2f0] dark:border-[#3a2e24] overflow-hidden">
+            <button onclick="location.href='profile.html'" class="w-full flex items-center justify-between p-4 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors border-b border-[#f4f2f0] dark:border-[#3a2e24] last:border-0">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-[#F3F4F6] dark:bg-white/10 flex items-center justify-center text-[#4B5563] dark:text-gray-300">
+                        <span class="material-symbols-outlined text-[20px]">person</span>
                     </div>
-                    <span class="text-xs font-medium text-[#9CA3AF] dark:text-gray-500 group-hover:text-[#897561] dark:group-hover:text-gray-400">홈</span>
-                </a>
-                <!-- Log -->
-                <a class="flex flex-col items-center justify-center gap-1 min-w-[64px] group" href="../Record/record.html">
-                    <div class="text-[#9CA3AF] dark:text-gray-500 group-hover:text-[#897561] dark:group-hover:text-gray-400 flex items-center justify-center transition-transform group-active:scale-95">
-                        <span class="material-symbols-outlined">edit_square</span>
-                    </div>
-                    <span class="text-xs font-medium text-[#9CA3AF] dark:text-gray-500 group-hover:text-[#897561] dark:group-hover:text-gray-400">기록</span>
-                </a>
-                <!-- Community -->
-                <a class="flex flex-col items-center justify-center gap-1 min-w-[64px] group" href="../Community/Community.html">
-                    <div class="text-[#9CA3AF] dark:text-gray-500 group-hover:text-[#897561] dark:group-hover:text-gray-400 flex items-center justify-center transition-transform group-active:scale-95">
-                        <span class="material-symbols-outlined">group</span>
-                    </div>
-                    <span class="text-xs font-medium text-[#9CA3AF] dark:text-gray-500 group-hover:text-[#897561] dark:group-hover:text-gray-400">커뮤니티</span>
-                </a>
-                <!-- My Page -->
-                <a class="flex flex-col items-center justify-center gap-1 min-w-[64px] group" href="../MyPage/Mypage.html">
-                    <div class="text-primary flex items-center justify-center transition-transform group-active:scale-95">
-                        <span class="material-symbols-outlined fill-current" style="font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;">person</span>
-                    </div>
-                    <span class="text-xs font-bold text-primary">마이페이지</span>
+                    <span class="text-sm font-medium text-[#181411] dark:text-white">프로필 수정</span>
+                </div>
+                <span class="material-symbols-outlined text-gray-400 text-[20px]">chevron_right</span>
+            </button>
+            
+            <button class="w-full flex items-center justify-between p-4 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors border-b border-[#f4f2f0] dark:border-[#3a2e24] last:border-0">
+            <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-[#F3F4F6] dark:bg-white/10 flex items-center justify-center text-[#4B5563] dark:text-gray-300">
+            <span class="material-symbols-outlined text-[20px]">notifications</span>
+            </div>
+            <span class="text-sm font-medium text-[#181411] dark:text-white">알림 설정</span>
+            </div>
+            <span class="material-symbols-outlined text-gray-400 text-[20px]">chevron_right</span>
+            </button>
 
-                </a>
-            </nav>
-</div>
+            <button class="w-full flex items-center justify-between p-4 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+            <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-[#F3F4F6] dark:bg-white/10 flex items-center justify-center text-[#4B5563] dark:text-gray-300">
+            <span class="material-symbols-outlined text-[20px]">help</span>
+            </div>
+            <span class="text-sm font-medium text-[#181411] dark:text-white">도움말 및 지원</span>
+            </div>
+            <span class="material-symbols-outlined text-gray-400 text-[20px]">chevron_right</span>
+            </button>
+        </div>
+        <div class="mt-8 mb-4 text-center">
+        <button class="text-xs text-gray-400 underline">로그아웃</button>
+        </div>
+        </section>
+    </main>
+    
+                <nav class="absolute bottom-0 left-0 right-0 bg-white dark:bg-[#1E160F] border-t border-[#f4f2f0] dark:border-[#3a2e24] px-6 pb-6 pt-3 flex justify-between items-end z-50">
+                    <!-- Home (Active) -->
+                    <a class="flex flex-col items-center justify-center gap-1 min-w-[64px] group" href="../Home/home.html">
+                        <div class="text-[#9CA3AF] dark:text-gray-500 group-hover:text-[#897561] dark:group-hover:text-gray-400 flex items-center justify-center transition-transform group-active:scale-95">
+                            <span class="material-symbols-outlined">home</span>
+                        </div>
+                        <span class="text-xs font-medium text-[#9CA3AF] dark:text-gray-500 group-hover:text-[#897561] dark:group-hover:text-gray-400">홈</span>
+                    </a>
+                    <!-- Log -->
+                    <a class="flex flex-col items-center justify-center gap-1 min-w-[64px] group" href="../Record/record.html">
+                        <div class="text-[#9CA3AF] dark:text-gray-500 group-hover:text-[#897561] dark:group-hover:text-gray-400 flex items-center justify-center transition-transform group-active:scale-95">
+                            <span class="material-symbols-outlined">edit_square</span>
+                        </div>
+                        <span class="text-xs font-medium text-[#9CA3AF] dark:text-gray-500 group-hover:text-[#897561] dark:group-hover:text-gray-400">기록</span>
+                    </a>
+                    <!-- Community -->
+                    <a class="flex flex-col items-center justify-center gap-1 min-w-[64px] group" href="../Community/Community.html">
+                        <div class="text-[#9CA3AF] dark:text-gray-500 group-hover:text-[#897561] dark:group-hover:text-gray-400 flex items-center justify-center transition-transform group-active:scale-95">
+                            <span class="material-symbols-outlined">group</span>
+                        </div>
+                        <span class="text-xs font-medium text-[#9CA3AF] dark:text-gray-500 group-hover:text-[#897561] dark:group-hover:text-gray-400">커뮤니티</span>
+                    </a>
+                    <!-- My Page -->
+                    <a class="flex flex-col items-center justify-center gap-1 min-w-[64px] group" href="../MyPage/Mypage.html">
+                        <div class="text-primary flex items-center justify-center transition-transform group-active:scale-95">
+                            <span class="material-symbols-outlined fill-current" style="font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;">person</span>
+                        </div>
+                        <span class="text-xs font-bold text-primary">마이페이지</span>
+
+                    </a>
+                </nav>
+    </div>
 
 </body></html>
