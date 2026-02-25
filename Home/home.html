@@ -61,7 +61,7 @@
             <main class="flex-1 overflow-y-auto no-scrollbar pb-24">
                 <!-- Greeting Section -->
                 <section class="px-6 pt-4 pb-6">
-                    <h2 id="user-greeting" class="text-xl font-medium text-[#897561] dark:text-gray-400 mb-1">Hi !</h2>
+                    <h2 id="user-greeting" class="text-xl font-medium text-[#897561] dark:text-gray-400 mb-1">Hi, <span id="home-nickname">Momogosso</span>!</h2>
                     <h1 class="text-[28px] leading-tight font-bold text-[#181411] dark:text-white">오늘 점심을<br/>기록해보세요</h1>
                 </section>
                 <!-- Main Action Card (Empty State) -->
@@ -144,18 +144,16 @@
         </div>
     </body>
     <script>
-        // 여기에 로그인한 사람의 닉네임이 들어온다고 가정
-        // 나중에는 서버나 로그인 데이터에서 이 값을 자동으로 가져옴
-        const userNickname = "momogosso"; 
-
-        // 화면이 다 그려지면 실행
         document.addEventListener("DOMContentLoaded", function() {
-            // 3. 아까 id="user-greeting" 이라고 이름표 달아둔 태그를 찾아서
-            const greetingElement = document.getElementById("user-greeting");
+            // 1. 저장된 닉네임 가져오기 (없으면 기본값 "Momogosso")
+            const savedNickname = localStorage.getItem('userNickname') || "Momogosso"; 
             
-            // 4. 그 안의 글자를 "Hi 닉네임!" 으로 바꿔라
-            if (greetingElement) {
-                greetingElement.innerText = `Hi ${userNickname}!`;
+            // 2. 홈 화면의 닉네임 요소 찾기
+            const nicknameElement = document.getElementById("home-nickname");
+            
+            // 3. 텍스트 교체
+            if (nicknameElement) {
+                nicknameElement.innerText = savedNickname;
             }
         });
     </script>
