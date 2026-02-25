@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Momogosso - My Page</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+                tailwind.config = {
+                    darkMode: "class", //클래스 기반 다크모드 활성화
+                    theme: {
+                        extend: {
+                            colors: {
+                                "primary": "#F35C1B", // 메인컬러 
+                                "background-light": "#f8f7f6", // 밝은 테마 배경색
+                                "background-dark": "#221910",  // 다크 테마 배경색
+                            },
+                            fontFamily: {
+                                "display": ["Plus Jakarta Sans", "Noto Sans KR", "sans-serif"],
+                                "sans": ["Plus Jakarta Sans", "Noto Sans KR", "sans-serif"],
+                            },
+                            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px"},
+                        },
+                    },
+                }
+        </script>
+        <style>
+            /* 전역 스타일 설정 */
+            body {
+                font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+                -webkit-font-smoothing: antialiased;
+            }
+            /* 스크롤바 숨기기 (디자인을 위해) */
+            .no-scrollbar::-webkit-scrollbar {display: none;}
+            .no-scrollbar {-ms-overflow-style: none;  /* IE and Edge */scrollbar-width: none;  /* Firefox */}
+        </style>
+        <style>
+            /* 최소 높이 설정 (모바일 화면 대응) */
+            body {
+            min-height: max(884px, 100dvh);
+            }
+        </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-[#181411] dark:text-white overflow-hidden w-full h-screen relative flex justify-center">
+    <div class="w-full max-w-[480px] h-full flex flex-col bg-background-light dark:bg-background-dark relative shadow-xl overflow-hidden">
+        <header class="flex items-center justify-between px-6 pt-6 pb-2">
+            <div class="flex items-center gap-2">
+                <button onclick="location.href='Setting.html'" class="w-8 h-8 flex items-center justify-center hover:bg-black/5 rounded-full transition-colors">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1 class="text-xl font-bold">프로필 수정</h1>
+            </div>
+        </header>
+
+        <main class="flex-1 overflow-y-auto no-scrollbar pb-24">
+            <section class="flex flex-col items-center pt-8 pb-10">
+                <div class="relative group">
+                    <label for="photo-input" class="cursor-pointer block">
+                        <div class="w-32 h-32 rounded-full bg-gray-200 overflow-hidden ring-4 ring-white shadow-md relative">
+                            <img id="photo-preview-circle" alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-21CxFM8gkFfLlwzhXIVzM324aA5ju6ukiFrDYJRpeRYJ7YOKDjMvW7A1ZFqR1VlL8LsudGL_2llGR71foJcEr0kUoknmT2kcF7Z18SjzsG2NVfcluNDSCFMfn92SRFzx3x5s1mz863adGgKqw0F04A4ttaCR0IM2Xx_owK8UTyeTNQz-tjT1DTqI_vYXHy8fRuHilMWbclQb9_aR5LCnOzKR8B8U6DPm6nmIYriBd3XX7_QO2cL23YS_0fa0_178eDiylFi2bXQ"/>
+                            
+                            <div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                <span class="material-symbols-outlined text-white">add_a_photo</span>
+                            </div>
+                        </div>
+                    </label>
+                    <input type="file" id="photo-input" accept="image/*" class="hidden">
+                </div>
+
+                <div class="mt-4 text-center">
+                    <h2 id="current-nickname-top" class="text-2xl font-bold text-[#181411] dark:text-white">닉네임</h2>
+                    <p class="text-sm text-primary font-medium mt-1">Lv.3 미식가</p>
+                </div>
+            </section>
+
+            <section class="px-6 pt-4 pb-6">
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">닉네임 변경</label>
+                    <input type="text" id="nickname-input" 
+                        class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:border-primary" 
+                        placeholder="새로운 닉네임을 입력하세요">
+                </div>
+
+                <button id="save-button" class="w-full py-4 bg-primary text-white font-bold rounded-2xl mb-8">
+                    저장하기
+                </button>
+
+                <hr class="mb-8 border-[#f4f2f0]">
+            </section>
+        </main>
+        
+        <nav class="absolute bottom-0 left-0 right-0 bg-white dark:bg-[#1E160F] border-t border-[#f4f2f0] dark:border-[#3a2e24] px-6 pb-6 pt-3 flex justify-between items-end z-50">
+                <!-- Home (Active) -->
+                <a class="flex flex-col items-center justify-center gap-1 min-w-[64px] group" href="../Home/home.html">
+                    <div class="text-[#9CA3AF] dark:text-gray-500 group-hover:text-[#897561] dark:group-hover:text-gray-400 flex items-center justify-center transition-transform group-active:scale-95">
+                        <span class="material-symbols-outlined">home</span>
+                    </div>
+                    <span class="text-xs font-medium text-[#9CA3AF] dark:text-gray-500 group-hover:text-[#897561] dark:group-hover:text-gray-400">홈</span>
+                </a>
+                <!-- Log -->
+                <a class="flex flex-col items-center justify-center gap-1 min-w-[64px] group" href="../Record/record.html">
+                    <div class="text-[#9CA3AF] dark:text-gray-500 group-hover:text-[#897561] dark:group-hover:text-gray-400 flex items-center justify-center transition-transform group-active:scale-95">
+                        <span class="material-symbols-outlined">edit_square</span>
+                    </div>
+                    <span class="text-xs font-medium text-[#9CA3AF] dark:text-gray-500 group-hover:text-[#897561] dark:group-hover:text-gray-400">기록</span>
+                </a>
+                <!-- Community -->
+                <a class="flex flex-col items-center justify-center gap-1 min-w-[64px] group" href="../Community/Community.html">
+                    <div class="text-[#9CA3AF] dark:text-gray-500 group-hover:text-[#897561] dark:group-hover:text-gray-400 flex items-center justify-center transition-transform group-active:scale-95">
+                        <span class="material-symbols-outlined">group</span>
+                    </div>
+                    <span class="text-xs font-medium text-[#9CA3AF] dark:text-gray-500 group-hover:text-[#897561] dark:group-hover:text-gray-400">커뮤니티</span>
+                </a>
+                <!-- My Page -->
+                <a class="flex flex-col items-center justify-center gap-1 min-w-[64px] group" href="../MyPage/Mypage.html">
+                    <div class="text-primary flex items-center justify-center transition-transform group-active:scale-95">
+                        <span class="material-symbols-outlined fill-current" style="font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;">person</span>
+                    </div>
+                    <span class="text-xs font-bold text-primary">마이페이지</span>
+
+                </a>
+            </nav>
+
+    <script>
+        function openPopup() {
+            document.getElementById('overlay').classList.add('opacity-100', 'pointer-events-auto');
+            document.getElementById('popup').classList.remove('translate-y-full');
+        }
+        function closePopup() {
+            document.getElementById('overlay').classList.remove('opacity-100', 'pointer-events-auto');
+            document.getElementById('popup').classList.add('translate-y-full');
+        }
+
+        // 여기에 로그인한 사람의 닉네임이 들어온다고 가정
+        // 나중에는 서버나 로그인 데이터에서 이 값을 자동으로 가져옴
+        const userNickname = "Momogosso"; 
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const nicknameInput = document.getElementById("nickname-input");
+            const saveButton = document.getElementById("save-button");
+            const currentNicknameTop = document.getElementById("current-nickname-top");
+            const photoInput = document.getElementById("photo-input");
+            const photoPreviewCircle = document.getElementById("photo-preview-circle");
+
+            // [1] 초기 데이터 로드
+            const savedNickname = localStorage.getItem('userNickname') || "익명_273";
+            currentNicknameTop.innerText = savedNickname; // 상단 닉네임 표시
+            nicknameInput.value = savedNickname;
+
+            // [2] 이미지 미리보기 기능 (프로필 클릭 시 사진 변경)
+            photoInput.addEventListener("change", function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        photoPreviewCircle.src = e.target.result; // 동그란 프로필 이미지 교체
+                        // 선택사항: 이미지도 로컬스토리지에 저장 가능 (단, 용량 제한 주의)
+                        localStorage.setItem('userProfileImage', e.target.result);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // [3] 저장 버튼 클릭 시
+            saveButton.addEventListener("click", function() {
+                const newNickname = nicknameInput.value.trim();
+
+                if (newNickname === "") {
+                    alert("닉네임을 입력해주세요!");
+                    return;
+                }
+
+                // 로컬 스토리지에 저장
+                localStorage.setItem('userNickname', newNickname);
+
+                // 화면 상단 닉네임 즉시 업데이트
+                currentNicknameTop.innerText = newNickname;
+
+                alert("성공적으로 변경되었습니다!");
+            });
+        });
+    </script>
+</body>
+</html>

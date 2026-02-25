@@ -13,7 +13,7 @@
                     theme: {
                         extend: {
                             colors: {
-                                "primary": "#ee8c2b", // 메인컬러 
+                                "primary": "#F35C1B", // 메인컬러 
                                 "background-light": "#f8f7f6", // 밝은 테마 배경색
                                 "background-dark": "#221910",  // 다크 테마 배경색
                             },
@@ -35,6 +35,9 @@
             /* 스크롤바 숨기기 (디자인을 위해) */
             .no-scrollbar::-webkit-scrollbar {display: none;}
             .no-scrollbar {-ms-overflow-style: none;  /* IE and Edge */scrollbar-width: none;  /* Firefox */}
+            /* 탭 전환 애니메이션 */
+            .fade-in-content { animation: fadeIn 0.4s ease-in-out; }
+            @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
         </style>
         <style>
             /* 최소 높이 설정 (모바일 화면 대응) */
@@ -57,34 +60,41 @@
             </header>
 
             <main class="flex-1 overflow-y-auto p-6 space-y-4 no-scrollbar">
-                <div class="flex p-1 bg-gray-200 rounded-xl mb-4">
-                    <button class="flex-1 py-2 text-sm font-bold text-white bg-primary rounded-lg shadow-sm">주</button>
-                    <button class="flex-1 py-2 text-sm font-medium text-gray-500">월</button>
-                    <button class="flex-1 py-2 text-sm font-medium text-gray-500">연</button>
-                </div>
+            <div class="flex p-1 bg-gray-200 rounded-xl mb-4">
+                <button id="tab-week" onclick="changeReportTab('week')" class="report-tab-btn flex-1 py-2 text-sm font-bold rounded-lg transition-all">주</button>
+                <button id="tab-month" onclick="changeReportTab('month')" class="report-tab-btn flex-1 py-2 text-sm font-medium rounded-lg transition-all">월</button>
+                <button id="tab-year" onclick="changeReportTab('year')" class="report-tab-btn flex-1 py-2 text-sm font-medium rounded-lg transition-all">연</button>
+            </div>
 
-                <div class="w-full bg-white rounded-3xl p-6 shadow-sm border border-[#f4f2f0] relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-10 -mt-10"></div>
-                    <span class="inline-flex px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded-full mb-4">NEW</span>
-                    <h3 class="text-lg font-bold leading-tight mb-2">이번 주는 <span class="text-primary">한식</span>을<br>가장 많이 드셨네요! 🍚</h3>
-                    <p class="text-xs text-gray-400 mb-6">지난주보다 밥심으로 버틴 날이 많았어요.</p>
-                    <div class="flex items-center justify-between pt-4 border-t border-gray-50">
-                        <div class="flex -space-x-2"><div class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center">🥘</div><div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">🥗</div></div>
-                        <span class="text-sm font-bold text-primary flex items-center gap-1">상세 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+            <div id="report-card" class="w-full bg-white rounded-3xl p-6 shadow-sm border border-[#f4f2f0] relative overflow-hidden fade-in-content">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-10 -mt-10"></div>
+                <span id="period-text" class="inline-flex px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded-full mb-4 uppercase">WEEKLY</span>
+                
+                <h3 class="text-lg font-bold leading-tight mb-2">
+                    이번 <span id="period-type-name">주</span>는 <span id="favorite-category" class="text-primary">한식</span>을<br>가장 많이 드셨네요! 🍚
+                </h3>
+                <p id="report-feedback" class="text-xs text-gray-400 mb-6 leading-relaxed">지난주보다 밥심으로 버틴 날이 많았어요.</p>
+                
+                <div id="stats-list" class="space-y-4">
                     </div>
-                </div>
 
-                <div class="bg-white p-4 rounded-2xl flex items-center gap-4 border border-gray-50 shadow-sm">
-                    <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center text-xl">🥪</div>
-                    <div class="flex-1"><p class="text-[10px] text-gray-400">2월 1주차</p><h4 class="text-sm font-bold">간편식이 대세였던 한 주</h4></div>
-                    <span class="material-symbols-outlined text-gray-300">chevron_right</span>
+                <div class="flex items-center justify-between pt-6 mt-6 border-t border-gray-50">
+                    <div class="flex -space-x-2">
+                        <div class="w-8 h-8 rounded-full bg-orange-100 border-2 border-white flex items-center justify-center text-sm">🥘</div>
+                        <div class="w-8 h-8 rounded-full bg-green-100 border-2 border-white flex items-center justify-center text-sm">🥗</div>
+                        <div class="w-8 h-8 rounded-full bg-blue-100 border-2 border-white flex items-center justify-center text-[10px] font-bold text-blue-600">+3</div>
+                    </div>
+                    <span class="text-sm font-bold text-primary flex items-center gap-1 cursor-pointer">상세 보기 <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
                 </div>
-                <div class="bg-white p-4 rounded-2xl flex items-center gap-4 border border-gray-50 shadow-sm opacity-60">
-                    <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center text-xl">🍝</div>
-                    <div class="flex-1"><p class="text-[10px] text-gray-400">1월 4주차</p><h4 class="text-sm font-bold">면 요리 마니아 등극!</h4></div>
-                    <span class="material-symbols-outlined text-gray-300">chevron_right</span>
-                </div>
-            </main>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl flex items-center gap-4 border border-gray-50 shadow-sm">
+                <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center text-xl">🥪</div>
+                <div class="flex-1"><p class="text-[10px] text-gray-400">이전 기록</p><h4 class="text-sm font-bold">간편식이 대세였던 기간</h4></div>
+                <span class="material-symbols-outlined text-gray-300">chevron_right</span>
+            </div>
+        </main>
+        
             <nav class="absolute bottom-0 left-0 right-0 bg-white border-t border-[#f4f2f0] px-6 pb-6 pt-3 flex justify-between items-center z-50">
                 <a class="flex flex-col items-center justify-center gap-1 min-w-[64px] group" href="../Home/home.html">
                     <div class="text-[#9CA3AF] group-hover:text-primary flex items-center justify-center transition-transform group-active:scale-95">
@@ -112,5 +122,104 @@
                 </a>
             </nav>
         </div>
+
+            <script>
+            // 1. 주/월/연도 더미 데이터
+        const reportData = {
+            week: {
+                periodLabel: "WEEKLY REPORT",
+                periodName: "주",
+                favoriteCategory: "한식",
+                feedbackMsg: "지난주보다 밥심으로 버틴 날이 많았어요. 든든한 한 주였네요!",
+                stats: [
+                    { category: "한식", count: 8, percentage: 57, color: "#F35C1B" },
+                    { category: "양식", count: 3, percentage: 21, color: "#FBBF24" },
+                    { category: "기타", count: 3, percentage: 22, color: "#E5E7EB" }
+                ]
+            },
+            month: {
+                periodLabel: "MONTHLY REPORT",
+                periodName: "달",
+                favoriteCategory: "일식",
+                feedbackMsg: "이번 달은 깔끔한 일식을 즐기셨네요! 초밥과 라멘 기록이 눈에 띄어요. :sushi:",
+                stats: [
+                    { category: "일식", count: 18, percentage: 42, color: "#3B82F6" },
+                    { category: "한식", count: 12, percentage: 28, color: "#F35C1B" },
+                    { category: "카페", count: 10, percentage: 23, color: "#A78BFA" },
+                    { category: "기타", count: 3, percentage: 7, color: "#E5E7EB" }
+                ]
+            },
+            year: {
+                periodLabel: "YEARLY REPORT",
+                periodName: "해",
+                favoriteCategory: "카페/디저트",
+                feedbackMsg: "2026년은 달콤한 해였군요! 카페 기록이 전체의 40%를 차지해요. :coffee:",
+                stats: [
+                    { category: "카페/디저트", count: 145, percentage: 40, color: "#A78BFA" },
+                    { category: "한식", count: 120, percentage: 33, color: "#F35C1B" },
+                    { category: "양식", count: 60, percentage: 17, color: "#FBBF24" },
+                    { category: "기타", count: 37, percentage: 10, color: "#E5E7EB" }
+                ]
+            }
+        };
+
+        // 2. 탭 전환 함수
+        function changeReportTab(type) {
+            // 버튼 스타일 변경
+            document.querySelectorAll('.report-tab-btn').forEach(btn => {
+                btn.classList.remove('text-white', 'bg-primary', 'shadow-sm', 'font-bold');
+                btn.classList.add('text-gray-500', 'font-medium');
+            });
+
+            const activeBtn = document.getElementById(`tab-${type}`);
+            activeBtn.classList.add('text-white', 'bg-primary', 'shadow-sm', 'font-bold');
+            activeBtn.classList.remove('text-gray-500', 'font-medium');
+
+            // 데이터 렌더링
+            renderReport(type);
+        }
+
+        // 3. 데이터 렌더링 함수
+        function renderReport(type) {
+            const data = reportData[type];
+
+            // 텍스트 교체
+            document.getElementById('period-text').innerText = data.periodLabel;
+            document.getElementById('period-type-name').innerText = data.periodName;
+            document.getElementById('favorite-category').innerText = data.favoriteCategory;
+            document.getElementById('report-feedback').innerText = data.feedbackMsg;
+
+            // 통계 리스트 생성
+            const statsList = document.getElementById('stats-list');
+            statsList.innerHTML = ''; // 초기화
+
+            data.stats.forEach(item => {
+                const row = `
+                    <div>
+                        <div class="flex justify-between text-[11px] mb-1">
+                            <span class="font-bold text-gray-700">${item.category}</span>
+                            <span class="text-gray-400">${item.count}회 (${item.percentage}%)</span>
+                        </div>
+                        <div class="w-full bg-gray-100 rounded-full h-1.5">
+                            <div class="h-1.5 rounded-full transition-all duration-700" style="width: ${item.percentage}%; background-color: ${item.color}"></div>
+                        </div>
+                    </div>
+                `;
+                statsList.insertAdjacentHTML('beforeend', row);
+            });
+
+            // 카드에 애니메이션 효과 주기
+            const card = document.getElementById('report-card');
+            card.classList.remove('fade-in-content');
+            void card.offsetWidth; // 리플로우 강제 발생
+            card.classList.add('fade-in-content');
+        }
+
+        // 초기 실행 (주간 리포트)
+        window.onload = () => {
+            changeReportTab('week');
+        };
+            </script>
+
     </body>
 </html>
