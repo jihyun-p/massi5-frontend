@@ -68,7 +68,6 @@
             <section class="px-6 mb-8">
                 <div class="flex items-center justify-between mb-4">
                     <h3 class="text-lg font-bold text-[#181411] dark:text-white">캘린더</h3>
-                    <button class="text-sm text-gray-500 hover:text-[#181411] transition-colors">전체보기</button>
                 </div>
 
                 <div class="bg-white p-5 rounded-2xl shadow-sm border border-[#F4F2F0] hover:border-primary/30 transition-all">
@@ -157,18 +156,25 @@
         // 나중에는 서버나 로그인 데이터에서 이 값을 자동으로 가져옴
         const userNickname = "Momogosso"; 
 
-        // 화면이 다 그려지면 실행
         document.addEventListener("DOMContentLoaded", function() {
-            // [기존 코드] 닉네임 설정
+            updateNickname(); // 처음 로드될 때 실행
+            renderCalendar();
+        });
+
+        // 페이지가 다시 보여질 때(뒤로가기로 돌아왔을 때 등) 데이터를 새로고침
+        window.onpageshow = function(event) {
+            updateNickname();
+        };
+
+        function updateNickname() {
             const nicknameElement = document.getElementById("nickname");
+            // 'userNickname'이 있으면 가져오고, 없으면 기본값 "Momogosso" 사용
             const savedNickname = localStorage.getItem('userNickname') || "Momogosso"; 
+            
             if (nicknameElement) {
                 nicknameElement.innerText = savedNickname;
             }
-
-            // [신규 코드] 달력 생성 함수 호출
-            renderCalendar();
-        });
+        }
 
         function renderCalendar() {
             const now = new Date();

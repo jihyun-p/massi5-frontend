@@ -1,141 +1,185 @@
 <!DOCTYPE html>
-<html lang="ko"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Momogosso - Mobile My Page New User</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-                tailwind.config = {
-                    darkMode: "class", //클래스 기반 다크모드 활성화
-                    theme: {
-                        extend: {
-                            colors: {
-                                "primary": "#F35C1B", // 메인컬러 
-                                "background-light": "#f8f7f6", // 밝은 테마 배경색
-                                "background-dark": "#221910",  // 다크 테마 배경색
-                            },
-                            fontFamily: {
-                                "display": ["Plus Jakarta Sans", "Noto Sans KR", "sans-serif"],
-                                "sans": ["Plus Jakarta Sans", "Noto Sans KR", "sans-serif"],
-                            },
-                            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px"},
+<html lang="ko">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <title>Momogosso - Setting</title>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet"/>
+        <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        colors: {
+                            "primary": "#F35C1B",
+                            "background-light": "#f8f7f6",
+                            "background-dark": "#221910",
                         },
+                        fontFamily: {
+                            "display": ["Plus Jakarta Sans", "Noto Sans KR", "sans-serif"],
+                            "sans": ["Plus Jakarta Sans", "Noto Sans KR", "sans-serif"],
+                        },
+                        borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px"},
                     },
-                }
+                },
+            }
         </script>
         <style>
-            /* 전역 스타일 설정 */
-            body {
-                font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
-                -webkit-font-smoothing: antialiased;
-            }
-            /* 스크롤바 숨기기 (디자인을 위해) */
+            body { font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif; -webkit-font-smoothing: antialiased; min-height: 100dvh; }
             .no-scrollbar::-webkit-scrollbar {display: none;}
-            .no-scrollbar {-ms-overflow-style: none;  /* IE and Edge */scrollbar-width: none;  /* Firefox */}
-        </style>
-        <style>
-            /* 최소 높이 설정 (모바일 화면 대응) */
-            body {
-            min-height: max(884px, 100dvh);
-            }
-        </style>
-  </head>
-
-<body class="bg-background-light dark:bg-background-dark text-[#181411] dark:text-white overflow-hidden w-full h-screen relative flex justify-center">
-    <div class="w-full max-w-[480px] h-full flex flex-col bg-background-light dark:bg-background-dark relative shadow-xl overflow-hidden">
-        <header class="flex items-center justify-between px-6 pt-6 pb-2">
-            <div class="flex items-center gap-2">
-                <button onclick="location.href='Mypage.html'" class="w-8 h-8 flex items-center justify-center hover:bg-black/5 rounded-full transition-colors">
-                    <span class="material-symbols-outlined">arrow_back</span>
-                </button>
-                <h1 class="text-xl font-bold">설정</h1>
-            </div>
-        </header>
-    <main class="flex-1 overflow-y-auto no-scrollbar pb-24">
-        <section class="px-6 pt-4 pb-6">
-        <div class="flex items-center gap-4 mb-6">
-            <div class="w-16 h-16 rounded-full bg-gray-200 overflow-hidden ring-2 ring-white dark:ring-[#2A2018]">
-                <img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-21CxFM8gkFfLlwzhXIVzM324aA5ju6ukiFrDYJRpeRYJ7YOKDjMvW7A1ZFqR1VlL8LsudGL_2llGR71foJcEr0kUoknmT2kcF7Z18SjzsG2NVfcluNDSCFMfn92SRFzx3x5s1mz863adGgKqw0F04A4ttaCR0IM2Xx_owK8UTyeTNQz-tjT1DTqI_vYXHy8fRuHilMWbclQb9_aR5LCnOzKR8B8U6DPm6nmIYriBd3XX7_QO2cL23YS_0fa0_178eDiylFi2bXQ"/>
-            </div>
-            <div>
-                <h2 class="text-xl font-bold text-[#181411] dark:text-white mb-0.5">Hi Jihyun!</h2>
-                <div class="flex items-center gap-1.5 text-sm text-[#897561] dark:text-gray-400">
-                </div>
-            </div>
-        </div>
-        </section>
-
-        <section class="px-6 pb-8">
-        <div class="bg-white dark:bg-[#2A2018] rounded-2xl shadow-sm border border-[#f4f2f0] dark:border-[#3a2e24] overflow-hidden">
-            <button onclick="location.href='profile.html'" class="w-full flex items-center justify-between p-4 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors border-b border-[#f4f2f0] dark:border-[#3a2e24] last:border-0">
-                <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-full bg-[#F3F4F6] dark:bg-white/10 flex items-center justify-center text-[#4B5563] dark:text-gray-300">
-                        <span class="material-symbols-outlined text-[20px]">person</span>
-                    </div>
-                    <span class="text-sm font-medium text-[#181411] dark:text-white">프로필 수정</span>
-                </div>
-                <span class="material-symbols-outlined text-gray-400 text-[20px]">chevron_right</span>
-            </button>
             
-            <button class="w-full flex items-center justify-between p-4 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors border-b border-[#f4f2f0] dark:border-[#3a2e24] last:border-0">
-            <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-[#F3F4F6] dark:bg-white/10 flex items-center justify-center text-[#4B5563] dark:text-gray-300">
-            <span class="material-symbols-outlined text-[20px]">notifications</span>
-            </div>
-            <span class="text-sm font-medium text-[#181411] dark:text-white">알림 설정</span>
-            </div>
-            <span class="material-symbols-outlined text-gray-400 text-[20px]">chevron_right</span>
-            </button>
+            @keyframes toast-slide {
+                0% { transform: translate(-50%, 100%); opacity: 0; }
+                15% { transform: translate(-50%, -20px); opacity: 1; }
+                85% { transform: translate(-50%, -20px); opacity: 1; }
+                100% { transform: translate(-50%, 100%); opacity: 0; }
+            }
+            .toast-animation { animation: toast-slide 2.5s ease-in-out forwards; }
+        </style>
+    </head>
+    <body class="bg-background-light dark:bg-background-dark text-[#181411] dark:text-white overflow-hidden w-full h-screen relative flex justify-center">
+        <div class="w-full max-w-[480px] h-full flex flex-col bg-background-light dark:bg-background-dark relative shadow-xl overflow-hidden">
+            
+            <header class="flex items-center justify-between px-6 pt-6 pb-2">
+                <div class="flex items-center gap-2">
+                    <button onclick="location.href='Mypage.html'" class="w-8 h-8 flex items-center justify-center hover:bg-black/5 rounded-full transition-colors">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                    </button>
+                    <h1 class="text-xl font-bold">설정</h1>
+                </div>
+            </header>
 
-            <button class="w-full flex items-center justify-between p-4 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
-            <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-[#F3F4F6] dark:bg-white/10 flex items-center justify-center text-[#4B5563] dark:text-gray-300">
-            <span class="material-symbols-outlined text-[20px]">help</span>
+            <main class="flex-1 overflow-y-auto no-scrollbar pb-24">
+                <section class="px-6 pt-4 pb-6">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 rounded-full bg-gray-200 overflow-hidden ring-2 ring-white dark:ring-[#2A2018]">
+                            <img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-21CxFM8gkFfLlwzhXIVzM324aA5ju6ukiFrDYJRpeRYJ7YOKDjMvW7A1ZFqR1VlL8LsudGL_2llGR71foJcEr0kUoknmT2kcF7Z18SjzsG2NVfcluNDSCFMfn92SRFzx3x5s1mz863adGgKqw0F04A4ttaCR0IM2Xx_owK8UTyeTNQz-tjT1DTqI_vYXHy8fRuHilMWbclQb9_aR5LCnOzKR8B8U6DPm6nmIYriBd3XX7_QO2cL23YS_0fa0_178eDiylFi2bXQ"/>
+                        </div>
+                        <div>
+                            <h2 id="setting-nickname" class="text-xl font-bold">nickname</h2>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-500 mb-1.5 ml-1">닉네임 수정</label>
+                        <input type="text" id="nickname-input" class="w-full h-12 px-4 rounded-xl border border-gray-200 focus:ring-primary focus:border-primary dark:bg-[#2A2018] dark:border-gray-700 dark:text-white" placeholder="새 닉네임을 입력하세요">
+                    </div>
+                    <button onclick="saveProfile()" class="w-full h-12 bg-primary text-white font-bold rounded-xl shadow-lg">저장하기</button>
+                </section>
+
+                <section class="px-6 pb-8">
+                    <div class="bg-white dark:bg-[#2A2018] rounded-2xl shadow-sm border border-[#f4f2f0] dark:border-[#3a2e24] overflow-hidden">
+                        <button class="w-full flex items-center justify-between p-4 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors border-b border-[#f4f2f0] dark:border-[#3a2e24] last:border-0">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-[#F3F4F6] dark:bg-white/10 flex items-center justify-center text-[#4B5563] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-[20px]">notifications</span>
+                                </div>
+                                <span class="text-sm font-medium">알림 설정</span>
+                            </div>
+                            <span class="material-symbols-outlined text-gray-400 text-[20px]">chevron_right</span>
+                        </button>
+                    </div>
+
+                    <div class="mt-8 text-center">
+                        <button onclick="openLogoutPopup()" class="text-xs text-gray-400 underline decoration-gray-300">로그아웃</button>
+                    </div>
+                </section>
+            </main>
+
+            <nav class="absolute bottom-0 left-0 right-0 bg-white dark:bg-[#1E160F] border-t border-[#f4f2f0] dark:border-[#3a2e24] px-6 pb-6 pt-3 flex justify-between items-end z-40">
+                <a class="flex flex-col items-center justify-center gap-1 min-w-[64px]" href="../Home/home.html">
+                    <span class="material-symbols-outlined text-gray-400">home</span>
+                    <span class="text-[10px] text-gray-400">홈</span>
+                </a>
+                <a class="flex flex-col items-center justify-center gap-1 min-w-[64px]" href="../Record/record.html">
+                    <span class="material-symbols-outlined text-gray-400">edit_square</span>
+                    <span class="text-[10px] text-gray-400">기록</span>
+                </a>
+                <a class="flex flex-col items-center justify-center gap-1 min-w-[64px]" href="../Community/Community.html">
+                    <span class="material-symbols-outlined text-gray-400">group</span>
+                    <span class="text-[10px] text-gray-400">커뮤니티</span>
+                </a>
+                <a class="flex flex-col items-center justify-center gap-1 min-w-[64px]" href="Mypage.html">
+                    <span class="material-symbols-outlined text-primary fill-current">person</span>
+                    <span class="text-[10px] font-bold text-primary">마이페이지</span>
+                </a>
+            </nav>
+
+            <div id="toast" class="fixed bottom-24 left-1/2 -translate-x-1/2 z-[100] pointer-events-none w-full max-w-[340px] px-4 hidden">
+                <div class="bg-[#181411] dark:bg-white text-white dark:text-[#181411] px-5 py-3.5 rounded-xl shadow-2xl flex items-center gap-3 justify-center">
+                    <div class="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center text-white shrink-0">
+                        <span class="material-symbols-outlined text-[14px] font-bold">check</span>
+                    </div>
+                    <span class="font-bold text-sm">프로필이 수정되었습니다</span>
+                </div>
             </div>
-            <span class="text-sm font-medium text-[#181411] dark:text-white">도움말 및 지원</span>
+
+            <div id="logout-overlay" class="fixed inset-0 bg-black/40 backdrop-blur-[2px] z-[110] opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeLogoutPopup()"></div>
+            <div id="logout-popup" class="fixed bottom-0 left-0 right-0 max-w-[480px] mx-auto bg-white dark:bg-[#2A2018] rounded-t-[32px] p-6 pb-12 z-[120] transform translate-y-full transition-transform duration-300 shadow-[0_-8px_30px_rgb(0,0,0,0.12)]">
+                <div class="w-12 h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full mx-auto mb-8"></div>
+                
+                <div class="text-center mb-8">
+                    <div class="w-16 h-16 bg-gray-50 dark:bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="material-symbols-outlined text-gray-400 text-3xl">logout</span>
+                    </div>
+                    <h2 class="text-xl font-bold dark:text-white">로그아웃 하시겠습니까?</h2>
+                    <p class="text-sm text-gray-500 mt-2">안전하게 로그아웃 후<br>로그인 화면으로 이동합니다.</p>
+                </div>
+
+                <div class="flex gap-3">
+                    <button onclick="closeLogoutPopup()" class="flex-1 h-14 bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-300 font-bold rounded-2xl">취소</button>
+                    <button onclick="confirmLogout()" class="flex-1 h-14 bg-primary text-white font-bold rounded-2xl shadow-lg shadow-primary/20">로그아웃</button>
+                </div>
             </div>
-            <span class="material-symbols-outlined text-gray-400 text-[20px]">chevron_right</span>
-            </button>
         </div>
-        <div class="mt-8 mb-4 text-center">
-        <button class="text-xs text-gray-400 underline">로그아웃</button>
-        </div>
-        </section>
-    </main>
-    
-                <nav class="absolute bottom-0 left-0 right-0 bg-white dark:bg-[#1E160F] border-t border-[#f4f2f0] dark:border-[#3a2e24] px-6 pb-6 pt-3 flex justify-between items-end z-50">
-                    <!-- Home (Active) -->
-                    <a class="flex flex-col items-center justify-center gap-1 min-w-[64px] group" href="../Home/home.html">
-                        <div class="text-[#9CA3AF] dark:text-gray-500 group-hover:text-[#897561] dark:group-hover:text-gray-400 flex items-center justify-center transition-transform group-active:scale-95">
-                            <span class="material-symbols-outlined">home</span>
-                        </div>
-                        <span class="text-xs font-medium text-[#9CA3AF] dark:text-gray-500 group-hover:text-[#897561] dark:group-hover:text-gray-400">홈</span>
-                    </a>
-                    <!-- Log -->
-                    <a class="flex flex-col items-center justify-center gap-1 min-w-[64px] group" href="../Record/record.html">
-                        <div class="text-[#9CA3AF] dark:text-gray-500 group-hover:text-[#897561] dark:group-hover:text-gray-400 flex items-center justify-center transition-transform group-active:scale-95">
-                            <span class="material-symbols-outlined">edit_square</span>
-                        </div>
-                        <span class="text-xs font-medium text-[#9CA3AF] dark:text-gray-500 group-hover:text-[#897561] dark:group-hover:text-gray-400">기록</span>
-                    </a>
-                    <!-- Community -->
-                    <a class="flex flex-col items-center justify-center gap-1 min-w-[64px] group" href="../Community/Community.html">
-                        <div class="text-[#9CA3AF] dark:text-gray-500 group-hover:text-[#897561] dark:group-hover:text-gray-400 flex items-center justify-center transition-transform group-active:scale-95">
-                            <span class="material-symbols-outlined">group</span>
-                        </div>
-                        <span class="text-xs font-medium text-[#9CA3AF] dark:text-gray-500 group-hover:text-[#897561] dark:group-hover:text-gray-400">커뮤니티</span>
-                    </a>
-                    <!-- My Page -->
-                    <a class="flex flex-col items-center justify-center gap-1 min-w-[64px] group" href="../MyPage/Mypage.html">
-                        <div class="text-primary flex items-center justify-center transition-transform group-active:scale-95">
-                            <span class="material-symbols-outlined fill-current" style="font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;">person</span>
-                        </div>
-                        <span class="text-xs font-bold text-primary">마이페이지</span>
 
-                    </a>
-                </nav>
-    </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const savedNickname = localStorage.getItem('userNickname') || "Momogosso";
+                const nicknameDisplay = document.getElementById("setting-nickname");
+                if (nicknameDisplay) nicknameDisplay.innerText = savedNickname;
+                const nicknameInput = document.getElementById("nickname-input");
+                if (nicknameInput) nicknameInput.value = savedNickname;
+            });
 
-</body></html>
+            function saveProfile() {
+                const nicknameInput = document.getElementById('nickname-input');
+                const newNickname = nicknameInput.value.trim();
+                if (newNickname === "") {
+                    alert("닉네임을 입력해주세요!");
+                    return;
+                }
+                localStorage.setItem('userNickname', newNickname);
+                const nicknameDisplay = document.getElementById("setting-nickname");
+                if (nicknameDisplay) nicknameDisplay.innerText = newNickname;
+                const toast = document.getElementById('toast');
+                toast.classList.remove('hidden');
+                toast.classList.add('toast-animation');
+                setTimeout(() => {
+                    location.href = 'Mypage.html';
+                }, 2200);
+            }
+
+            function openLogoutPopup() {
+                document.getElementById('logout-overlay').classList.add('opacity-100', 'pointer-events-auto');
+                document.getElementById('logout-popup').classList.remove('translate-y-full');
+            }
+
+            function closeLogoutPopup() {
+                document.getElementById('logout-overlay').classList.remove('opacity-100', 'pointer-events-auto');
+                document.getElementById('logout-popup').classList.add('translate-y-full');
+            }
+
+            function confirmLogout() {
+                localStorage.removeItem('userNickname');
+                closeLogoutPopup();
+                setTimeout(() => {
+                    // 로그인 화면으로 이동
+                    location.href = '../Home/login.html';
+                }, 300);
+            }
+        </script>
+    </body>
+</html>
